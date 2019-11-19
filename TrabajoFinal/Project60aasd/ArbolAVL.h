@@ -90,6 +90,13 @@ private:
 		_inOrder(nodo->derecha);
 	}
 
+	void _inOrderDes(cNodo<Alma, Int>*&nodo) {
+		if (nodo == nullptr)return;
+		_inOrderDes(nodo->derecha);
+		procesar(nodo->elementos);
+		_inOrderDes(nodo->izquierda);
+	}
+
 public:
 	ArbolAVL(void(*pf)(Alma)) {
 		raiz = nullptr;
@@ -98,4 +105,5 @@ public:
 
 	void Insertar(Alma es, Int e) { _insertar(raiz,es, e); }
 	void inOrder() { _inOrder(raiz); }
+	void Desendente() { _inOrderDes(raiz); }
 };

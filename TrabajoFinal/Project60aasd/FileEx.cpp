@@ -9,6 +9,7 @@ using namespace std;
 using namespace System;
 using namespace System::IO;
 
+bool uso = false;
 
 void Imprime(cAlmacenamiento ele) {
 
@@ -32,7 +33,7 @@ void Escanea(String^ carpeta,ArbolAVL<Alma,Int>*&arbol)
 {
 	auto files = Directory::GetFiles(carpeta,"*",SearchOption::AllDirectories);
 	int archivos;
-	
+	uso = true;
 	
 	for each  (auto item in files)
 	{
@@ -57,6 +58,40 @@ void Escanea(String^ carpeta,ArbolAVL<Alma,Int>*&arbol)
 	else { cout << "Hay un total de " << archivos << " archivos." << endl; }
 	cout << "El arbol fue llenado correctamente." << endl;
 }
+
+template<class Alma, class Int>
+void EscaneaLetra(String^ carpeta, ArbolAVL<Alma, Int>*&arbol)
+{
+	auto files = Directory::GetFiles(carpeta, "*", SearchOption::AllDirectories);
+	int archivos;
+	uso = true;
+
+	for each  (auto item in files)
+	{
+		cAlmacenamiento almacen;
+		almacen.SET_Nombre(msclr::interop::marshal_as<string>(Path::GetFileNameWithoutExtension(item)));
+		almacen.SET_Contiene(msclr::interop::marshal_as<string>(Path::GetFileNameWithoutExtension(item)).length());
+		almacen.SET_LetraInicial(msclr::interop::marshal_as<string>(Path::GetFileNameWithoutExtension(item)));
+		almacen.SET_LetraFinal(msclr::interop::marshal_as<string>(Path::GetFileNameWithoutExtension(item)));
+		///////////////////////////////////////////////////////
+		almacen.SET_Anio(FileInfo(item).CreationTime.Year);
+		almacen.SET_Mes(FileInfo(item).CreationTime.Month);
+		almacen.SET_Dia(FileInfo(item).CreationTime.Day);
+		///////////////////////////////////////////////////////
+		almacen.SET_Extension(msclr::interop::marshal_as<string>(FileInfo(item).Extension));
+		almacen.SET_Tamanio(FileInfo(item).Length);
+		
+		arbol->Insertar(almacen, int(almacen.GET_LetraInicial()));
+		archivos++;
+	}
+	
+	cout << endl << endl;
+	if (archivos >= 1000) { cout << "Hay un total de " << archivos / 1000 << " x 1000 archivos." << endl; }
+	else { cout << "Hay un total de " << archivos << " archivos." << endl; }
+	cout << "El arbol fue llenado correctamente." << endl;
+	arbol->inOrder();
+}
+
 
 void Titulo(){
 	int a = 18;
@@ -123,6 +158,7 @@ void Creditos() {
 void Ejecutor() {
 	Titulo();
 	ArbolAVL<cAlmacenamiento, int>*arbol;
+	ArbolAVL<cAlmacenamiento, int>*arbolletra;
 
 	string direccion;
 	bool verdad = true;
@@ -136,9 +172,10 @@ void Ejecutor() {
 		cout << "\t\t\t\t\t|     File-Ex en un ArbolAVL     |" << endl;
 		cout << "\t\t\t\t\to--------------------------------o" << endl;
 		cout << "\t\t\t\t\t| 1.- Ingresar Ruta del Archivo. |" << endl;
-		cout << "\t\t\t\t\t| 2.- Imprime arbol.             |" << endl;
-		cout << "\t\t\t\t\t| 3.- Creditos.                  |" << endl;
-		cout << "\t\t\t\t\t| 4.- Salir.                     |" << endl;
+		cout << "\t\t\t\t\t| 2.- Imprime arbol ascendente.  |" << endl;
+		cout << "\t\t\t\t\t| 3.- Imprime arbol desendente.  |" << endl;
+		cout << "\t\t\t\t\t| 4.- Creditos.                  |" << endl;
+		cout << "\t\t\t\t\t| 5.- Salir.                     |" << endl;
 		cout << "\t\t\t\t\to--------------------------------o" << endl;
 		cout << "\t\tIngrese una opcion => "; cin >> opcion;
 
@@ -168,23 +205,70 @@ void Ejecutor() {
 			break;
 			}
 		case 2: {
-			system("cls");
-			cout << "\t\t\t\t\t\t====================" << endl;
-			cout << "\t\t\t\t\t\to Arbol en InOrder o" << endl;
-			cout << "\t\t\t\t\t\t====================" << endl;
-			cout << endl << endl;
-			arbol->inOrder();
+			if (uso == true) {
+				system("cls");
+				cout << "\t\t\t\t\t\t=============================" << endl;
+				cout << "\t\t\t\t\t\to Arbol en order Ascendente o" << endl;
+				cout << "\t\t\t\t\t\t=============================" << endl;
+				cout << endl << endl;
+				arbol->inOrder();
+			}
+			else {
+				cout << "\t\t\t\t\t\t=============================" << endl;
+				cout << "\t\t\t\t\t\to Aun no inicio la busqueda o" << endl;
+				cout << "\t\t\t\t\t\t=============================" << endl;
+			}
 			_getch();
 			break;
 			}
 		case 3: {
+			if (uso == true) {
+				system("cls");
+				cout << "\t\t\t\t\t\t=============================" << endl;
+				cout << "\t\t\t\t\t\to Arbol en order Desendente o" << endl;
+				cout << "\t\t\t\t\t\t=============================" << endl;
+				cout << endl << endl;
+				arbol->Desendente();
+			}
+			else {
+				cout << "\t\t\t\t\t\t=============================" << endl;
+				cout << "\t\t\t\t\t\to Aun no inicio la busqueda o" << endl;
+				cout << "\t\t\t\t\t\t=============================" << endl;
+			}
+			_getch();
+			break;
+		}
+		case 4: {
 			Creditos();
 			break;
 			}
-		case 4: {
+		case 5: {
 			verdad = false;
 			break;
 			}
+		case 6: {
+			arbol = new ArbolAVL<cAlmacenamiento, int>(Imprime);
+			cout << endl;
+			Console::SetCursorPosition(0, 12);
+			cout << "\to------------------------------------------------------------------------------------------------------o" << endl;
+			Console::SetCursorPosition(0, 14);
+			cout << "\to------------------------------------------------------------------------------------------------------o" << endl;
+			Console::SetCursorPosition(0, 13);
+			cout << "\to  Ingrese la dirrecion a escanear: "; getline(cin, direccion);
+			if (direccion == "") { cout << "Coloque una direccion"; }
+			else {
+				if (Directory::Exists(msclr::interop::marshal_as<String^>(direccion))) {
+					EscaneaLetra(msclr::interop::marshal_as<String^>(direccion), arbol);
+				}
+				else {
+					Console::SetCursorPosition(0, 16);
+					cout << "\tLa direccion no existe";
+				}
+			}
+			_getch();
+
+			break;
+		}
 		default: {
 			break;
 			}
