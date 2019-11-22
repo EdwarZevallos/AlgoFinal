@@ -1,0 +1,63 @@
+﻿  FileEx.cpp
+FileEx.cpp(39): warning C4101: 'arbolletra': variable local sin referencia
+c:\users\lucia\onedrive\escritorio\trabajofinal\project60aasd\Escaneo.h(111): warning C4267: 'argumento': conversión de 'size_t' a 'int'; posible pérdida de datos
+  c:\users\lucia\onedrive\escritorio\trabajofinal\project60aasd\Escaneo.h(103): note: durante la compilación de la función miembro de plantilla de clase 'void Escaneo<cAlmacenamiento,int>::EsaneaContiene(System::String ^,ArbolAVL<Alma,Int> *&)'
+          with
+          [
+              Alma=cAlmacenamiento,
+              Int=int
+          ]
+  FileEx.cpp(151): note: vea la referencia a la creación de instancias de plantilla de función 'void Escaneo<cAlmacenamiento,int>::EsaneaContiene(System::String ^,ArbolAVL<Alma,Int> *&)' que se está compilando
+          with
+          [
+              Alma=cAlmacenamiento,
+              Int=int
+          ]
+  FileEx.cpp(35): note: vea la referencia a la creación de instancias de plantilla de clase 'Escaneo<cAlmacenamiento,int>' que se está compilando
+c:\users\lucia\onedrive\escritorio\trabajofinal\project60aasd\Escaneo.h(120): warning C4244: 'argumento': conversión de '__int64' a 'double'; posible pérdida de datos
+c:\users\lucia\onedrive\escritorio\trabajofinal\project60aasd\Escaneo.h(82): warning C4267: 'argumento': conversión de 'size_t' a 'int'; posible pérdida de datos
+  c:\users\lucia\onedrive\escritorio\trabajofinal\project60aasd\Escaneo.h(74): note: durante la compilación de la función miembro de plantilla de clase 'void Escaneo<cAlmacenamiento,int>::EsaneaPeso(System::String ^,ArbolAVL<Alma,Int> *&)'
+          with
+          [
+              Alma=cAlmacenamiento,
+              Int=int
+          ]
+  FileEx.cpp(78): note: vea la referencia a la creación de instancias de plantilla de función 'void Escaneo<cAlmacenamiento,int>::EsaneaPeso(System::String ^,ArbolAVL<Alma,Int> *&)' que se está compilando
+          with
+          [
+              Alma=cAlmacenamiento,
+              Int=int
+          ]
+c:\users\lucia\onedrive\escritorio\trabajofinal\project60aasd\Escaneo.h(91): warning C4244: 'argumento': conversión de '__int64' a 'double'; posible pérdida de datos
+c:\users\lucia\onedrive\escritorio\trabajofinal\project60aasd\Escaneo.h(53): warning C4267: 'argumento': conversión de 'size_t' a 'int'; posible pérdida de datos
+  c:\users\lucia\onedrive\escritorio\trabajofinal\project60aasd\Escaneo.h(45): note: durante la compilación de la función miembro de plantilla de clase 'void Escaneo<cAlmacenamiento,int>::EscaneaUltimaLetra(System::String ^,ArbolAVL<Alma,Int> *&)'
+          with
+          [
+              Alma=cAlmacenamiento,
+              Int=int
+          ]
+  FileEx.cpp(126): note: vea la referencia a la creación de instancias de plantilla de función 'void Escaneo<cAlmacenamiento,int>::EscaneaUltimaLetra(System::String ^,ArbolAVL<Alma,Int> *&)' que se está compilando
+          with
+          [
+              Alma=cAlmacenamiento,
+              Int=int
+          ]
+c:\users\lucia\onedrive\escritorio\trabajofinal\project60aasd\Escaneo.h(62): warning C4244: 'argumento': conversión de '__int64' a 'double'; posible pérdida de datos
+c:\users\lucia\onedrive\escritorio\trabajofinal\project60aasd\Escaneo.h(24): warning C4267: 'argumento': conversión de 'size_t' a 'int'; posible pérdida de datos
+  c:\users\lucia\onedrive\escritorio\trabajofinal\project60aasd\Escaneo.h(16): note: durante la compilación de la función miembro de plantilla de clase 'void Escaneo<cAlmacenamiento,int>::EscaneaPrimeraLetra(System::String ^,ArbolAVL<Alma,Int> *&)'
+          with
+          [
+              Alma=cAlmacenamiento,
+              Int=int
+          ]
+  FileEx.cpp(102): note: vea la referencia a la creación de instancias de plantilla de función 'void Escaneo<cAlmacenamiento,int>::EscaneaPrimeraLetra(System::String ^,ArbolAVL<Alma,Int> *&)' que se está compilando
+          with
+          [
+              Alma=cAlmacenamiento,
+              Int=int
+          ]
+c:\users\lucia\onedrive\escritorio\trabajofinal\project60aasd\Escaneo.h(33): warning C4244: 'argumento': conversión de '__int64' a 'double'; posible pérdida de datos
+  .NETFramework,Version=v4.5.2.AssemblyAttributes.cpp
+  FileEx.obj : /DEBUG:FASTLINK no se admite cuando hay presente código administrado; reiniciando vínculo con /DEBUG:FULL
+  Project60aasd.vcxproj -> C:\Users\lucia\OneDrive\Escritorio\TrabajoFinal\x64\Debug\Project60aasd.exe
+  Project60aasd.vcxproj -> C:\Users\lucia\OneDrive\Escritorio\TrabajoFinal\x64\Debug\Project60aasd.pdb (Partial PDB)
